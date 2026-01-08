@@ -13,6 +13,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -33,8 +34,8 @@ public class ReportService {
     ReportService(reportGenerationDetailsRepository repoReportGenrt) {
         this.repoReportGenrt = repoReportGenrt;
     }
+    
     public void generateAndSendReport() throws Exception {
-
         List<User> users = getAllUser();
         System.out.println("all user total::: " + users.size());
         File excel = excelService.generateExcel(users);
@@ -43,13 +44,14 @@ public class ReportService {
                 excel
         );
         System.out.println("Report Sent Successfully!");
+        
     }
     
     public void trailCreationForReportGeneration(Date startDateTime, Date endDateTime){
         System.out.println("inside:::::::::trailCreationForReportGeneration");
         reportGenerationDetails rgd = new reportGenerationDetails();
         rgd.setRgd_request_from("ccsrobodt@gmail.com");
-        rgd.setRgd_request_to("ankit07v@gmail.com");
+        rgd.setRgd_request_to("singhsonu6798@gmail.com");
         rgd.setRgd_requestStartTime(startDateTime);
         rgd.setRgd_requestEndTime(endDateTime);
         repoReportGenrt.save(rgd);
