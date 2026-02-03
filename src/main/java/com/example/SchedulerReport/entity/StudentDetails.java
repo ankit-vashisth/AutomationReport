@@ -12,19 +12,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Date;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
- * @author CCS
+ * @author Ankit Vashistha
  */
 @Entity
-@Table(name = "user", catalog = "test")
+@Table(name = "student_details", catalog = "test")
 @Data
-public class User {
+@NoArgsConstructor
+public class StudentDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "student_Name")
     private String sName;
@@ -47,4 +49,6 @@ public class User {
     @Column(name = "s_TotalMarks")
     private double totalMarks;
 
+    @Column(name = "s_emailAddress")
+    private String semailAddress;
 }

@@ -4,14 +4,19 @@
  */
 package com.example.SchedulerReport.dtoValidation;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
- * @author CCS
+ * @author Ankit Vashistha
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserValidationDTO {
 
     @NotBlank(message = "Student name can't be empty")
@@ -31,4 +36,7 @@ public class UserValidationDTO {
 
     @NotBlank(message = "Total marks is mandatory.")
     private double totalMarks;
+    
+    @Email(message = "Please enter a valid email address.")
+    private String emailAddress;
 }

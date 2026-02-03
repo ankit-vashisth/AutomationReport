@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author CCS
+ * @author Ankit Vashistha
  */
 @Service
 public class EmailService {

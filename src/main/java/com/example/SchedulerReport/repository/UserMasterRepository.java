@@ -4,15 +4,16 @@
  */
 package com.example.SchedulerReport.repository;
 
-import com.example.SchedulerReport.entity.User;
+import com.example.SchedulerReport.entity.UserMaster;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author CCS
+ * @author Ankit Vashistha
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-
+public interface UserMasterRepository extends JpaRepository<UserMaster, Long> {
+    Optional<UserMaster> findByUmName(String um_name);
 }

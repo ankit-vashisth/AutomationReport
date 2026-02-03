@@ -4,12 +4,11 @@
  */
 package com.example.SchedulerReport.Services;
 
-import com.example.SchedulerReport.entity.User;
+import com.example.SchedulerReport.entity.StudentDetails;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -18,12 +17,12 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author CCS
+ * @author Ankit Vashistha
  */
 @Service
 public class ExcelService {
 
-    public File generateExcel(List<User> users) throws FileNotFoundException, IOException {
+    public File generateExcel(List<StudentDetails> users) throws FileNotFoundException, IOException {
 
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("User Report");
@@ -38,7 +37,7 @@ public class ExcelService {
         header.createCell(6).setCellValue("Obtained_Marks");
         header.createCell(7).setCellValue("Total_Marks");
 
-        for (User u : users) {
+        for (StudentDetails u : users) {
             Row row = sheet.createRow(num++);
             row.createCell(0).setCellValue(u.getId());
             row.createCell(1).setCellValue(u.getSName());
